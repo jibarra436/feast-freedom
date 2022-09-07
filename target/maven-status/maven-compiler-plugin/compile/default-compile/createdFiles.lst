@@ -1,0 +1,15 @@
+com\assignments\TalkAssignmentJWTToken\config\WebSecurityConfig.class
+com\assignments\TalkAssignmentJWTToken\model\Talk.class
+com\assignments\TalkAssignmentJWTToken\controller\JwtAuthenticationController.class
+com\assignments\TalkAssignmentJWTToken\controller\TalkController.class
+com\assignments\TalkAssignmentJWTToken\services\JwtUserDetailsService.class
+com\assignments\TalkAssignmentJWTToken\config\JwtRequestFilter.class
+com\assignments\TalkAssignmentJWTToken\services\TalkService.class
+com\assignments\TalkAssignmentJWTToken\model\JwtResponse.class
+com\assignments\TalkAssignmentJWTToken\repo\TalkRepository.class
+com\assignments\TalkAssignmentJWTToken\TalkRestWSAssignmentApplication.class
+com\assignments\TalkAssignmentJWTToken\model\TalkUser.class
+com\assignments\TalkAssignmentJWTToken\model\JwtRequest.class
+com\assignments\TalkAssignmentJWTToken\config\JwtTokenUtil.class
+com\assignments\TalkAssignmentJWTToken\config\JwtAuthenticationEntryPoint.class
+com\assignments\TalkAssignmentJWTToken\repo\TalkUserRepository.class

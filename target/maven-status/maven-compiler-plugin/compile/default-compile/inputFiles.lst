@@ -1,0 +1,15 @@
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\repo\TalkRepository.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\config\JwtRequestFilter.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\model\Talk.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\model\TalkUser.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\services\TalkService.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\controller\TalkController.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\TalkRestWSAssignmentApplication.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\model\JwtRequest.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\config\JwtTokenUtil.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\config\JwtAuthenticationEntryPoint.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\model\JwtResponse.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\config\WebSecurityConfig.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\repo\TalkUserRepository.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\services\JwtUserDetailsService.java
+C:\Users\Joeyarrabi\Downloads\TalkRestWSAssignment\src\main\java\com\assignments\TalkAssignmentJWTToken\controller\JwtAuthenticationController.java
