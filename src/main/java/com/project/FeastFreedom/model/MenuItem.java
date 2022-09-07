@@ -30,4 +30,9 @@ public class MenuItem {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="menu_id", referencedColumnName = "id")
 	private Menu menu;
+	
+	public MenuItem(String itemName, double itemPrice) {
+		this.itemName = itemName;
+		this.itemPrice = itemPrice;
+	}
 }

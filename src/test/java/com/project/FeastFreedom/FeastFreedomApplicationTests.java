@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.project.FeastFreedom.model.FeastUser;
+import com.project.FeastFreedom.model.Kitchen;
+import com.project.FeastFreedom.model.Menu;
+import com.project.FeastFreedom.model.MenuItem;
+import com.project.FeastFreedom.services.KitchenService;
 import com.project.FeastFreedom.services.UserService;
 
 @SpringBootTest
@@ -13,10 +17,14 @@ class FeastFreedomApplicationTests {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	KitchenService kitchenService;
+	
 	@Test
 	void contextLoads() {
 	}
 	
+	/*
 	@Test
 	void testCreateUser() {
 		FeastUser user = new FeastUser();
@@ -27,5 +35,24 @@ class FeastFreedomApplicationTests {
 		
 		userService.insert(user);
 	}
+	*/
+	
+	/*
+	@Test
+	void testCreateKitchen() {
+		Menu menu = new Menu();
+		menu.addItem(new MenuItem("Chicken Taco", 1.99));
+		menu.addItem(new MenuItem("Beef Taco", 1.99));
+		menu.addItem(new MenuItem("Steak Taco", 2.49));
+		
+		Kitchen kitchen = new Kitchen();
+		kitchen.setKitchenName("Joe's Tacos");
+		kitchen.setEmail("joestacos@gmail.com");
+		kitchen.setMenu(menu);
+		kitchen.setImageURL("https://freedom-feast-kitchen-images.s3.us-east-2.amazonaws.com/testlogo.jpg");
+		
+		kitchenService.insert(kitchen);
+	}
+	*/
 
 }
