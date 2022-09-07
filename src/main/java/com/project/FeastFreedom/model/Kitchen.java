@@ -1,10 +1,12 @@
 package com.project.FeastFreedom.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -14,7 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "kitchens")
+@Table(name = "kitchen")
 public class Kitchen {
 	
 	@Id
@@ -32,6 +34,7 @@ public class Kitchen {
     private String workingTime;
     private String imageURL;
     
-    // @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "menu_id", referencedColumnName = "id")
     private Menu menu;
 }

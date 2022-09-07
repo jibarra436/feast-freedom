@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.project.FeastFreedom.FeastFreedomApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 12.147 s <<< FAILURE! - in com.project.FeastFreedom.FeastFreedomApplicationTests
+testCreateUser  Time elapsed: 0.025 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'kitchenRepository' defined in com.project.FeastFreedom.repo.KitchenRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Column(s) not allowed on a @OneToOne property: com.project.FeastFreedom.model.Menu.kitchen
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Column(s) not allowed on a @OneToOne property: com.project.FeastFreedom.model.Menu.kitchen
+Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @OneToOne property: com.project.FeastFreedom.model.Menu.kitchen
+
+contextLoads  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'kitchenRepository' defined in com.project.FeastFreedom.repo.KitchenRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaMappingContext' while setting bean property 'mappingContext'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Column(s) not allowed on a @OneToOne property: com.project.FeastFreedom.model.Menu.kitchen
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaMappingContext': Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Column(s) not allowed on a @OneToOne property: com.project.FeastFreedom.model.Menu.kitchen
+Caused by: org.hibernate.AnnotationException: @Column(s) not allowed on a @OneToOne property: com.project.FeastFreedom.model.Menu.kitchen
+
