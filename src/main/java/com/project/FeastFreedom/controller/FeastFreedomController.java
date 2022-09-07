@@ -17,6 +17,7 @@ public class FeastFreedomController {
 	
 	@Autowired
 	private KitchenService kitchenService;
+	private UserService userservice;
 	
 	@GetMapping("/kitchens")
 	public List<Kitchen> getList()
