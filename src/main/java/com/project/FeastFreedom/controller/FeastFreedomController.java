@@ -17,16 +17,19 @@ public class FeastFreedomController {
 	
 	@Autowired
 	private KitchenService kitchenService;
-	private UserService userservice;
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private MenuService menuService;
 	
-	@GetMapping("/kitchens")
-	public List<Kitchen> getList()
+	@GetMapping("/kitchen")
+	public List<Kitchen> getKitchenList()
 	{
 		return kitchenService.getKitchens();
 	}
 	
 	@GetMapping("/kitchen/{id}")
-	public ResponseEntity<Kitchen> get(@PathVariable int id) {
+	public ResponseEntity<Kitchen> getKitchenInfo(@PathVariable int id) {
 		
 	    try {
 	        Kitchen kitchen = kitchenService.getKitchen(id);
@@ -34,6 +37,20 @@ public class FeastFreedomController {
 	    } 
 	    catch (NoSuchElementException e) {
 	        return new ResponseEntity<Kitchen>(HttpStatus.NOT_FOUND);
+	    }   
+	    
+	}
+	
+	@GetMapping("/kitchen/{id}/menu")
+	public ResponseEntity<ArrayList<MenuItem>> getKitchenMenu(@PathVariable int id) {
+		
+	    try {
+	        ArrayList<MenuItem> menuItems = menuService.getMenuItems(id);
+	        
+	        return new ResponseEntity< ArrayList<MenuItem> >(menuItems, HttpStatus.OK);
+	    } 
+	    catch (NoSuchElementException e) {
+	        return new ResponseEntity<ArrayList<MenuItem>>(HttpStatus.NOT_FOUND);
 	    }   
 	    
 	}

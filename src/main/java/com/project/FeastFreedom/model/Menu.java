@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Getter;
@@ -29,6 +31,7 @@ public class Menu {
 	private int id;
 	
 	@OneToOne(mappedBy = "menu")
+	@JsonBackReference
     private Kitchen kitchen;
 	
 	@JsonManagedReference
