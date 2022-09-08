@@ -23,6 +23,10 @@ public class UserService {
         return userRepo.findById(id).get();
     }
     
+    public FeastUser getUserByEmail(String email) {
+        return userRepo.findByEmail(email);
+    }
+    
     public void insert(FeastUser feastUser) {
     	userRepo.save(feastUser);
     }

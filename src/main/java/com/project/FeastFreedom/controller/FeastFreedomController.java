@@ -7,14 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.FeastFreedom.config.SESMailer;
 import com.project.FeastFreedom.model.*;
 import com.project.FeastFreedom.services.*;
 
 import java.util.*;
 
+import javax.mail.MessagingException;
+
 @RestController
+@RequestMapping("/api")
 public class FeastFreedomController {
 	
 	@Autowired
@@ -57,21 +62,26 @@ public class FeastFreedomController {
 	    
 	}
 	
-	@GetMapping("/checkout/{cart}")
-	public ResponseEntity<String> getCart(@PathVariable FeastUser us, @PathVariable String cart){
-		try {
-			/*Cart pulls list of menu items here. String as placeholder, ArrayList<MenuItem> will be the
-			actual variable*/
-	        return new ResponseEntity<String> (cart, HttpStatus.OK);
-	    } 
-	    catch (NoSuchElementException e) {
-	        return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
-	    }   
-	}
-	
 	@PostMapping("/checkout")
-	public void createCart(@RequestBody String cart) {
-		//create cart here
+	public void createCart(@RequestBody String userEmail, @RequestBody String cart) {
+		// Get user by email, if valid send confirmation email
+		FeastUser user = userService.getUserByEmail(userEmail);
+		
+		if(user != null) {
+			
+			try {
+				SESMailer.send(userEmail, "Feast Freedom Order Confirmation", ""
+					+ "<h1>Your Order Has Been Placed!</h1>"
+					+ "<p>Thank you for your order!<p>"
+					+ "<br><p>Your order:<p>"
+					+ cart);
+			} catch(MessagingException ex) {
+				System.out.println("Error sending mail - "+ex.getMessage());
+			}
+			
+		} else {
+			System.out.println("Error finding user with email "+userEmail);
+		}
 	}
 	
 	@PostMapping("/kitchen")

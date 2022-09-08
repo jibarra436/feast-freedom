@@ -58,6 +58,7 @@ class FeastFreedomApplicationTests {
 	}
 	*/
 	
+	/*
 	@Test
 	void testMailer() {		
 		try {
@@ -70,5 +71,6 @@ class FeastFreedomApplicationTests {
 		}
 		
 	}
+	*/
 
 }
