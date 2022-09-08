@@ -1,9 +1,12 @@
 package com.project.FeastFreedom;
 
+import javax.mail.MessagingException;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.project.FeastFreedom.config.SESMailer;
 import com.project.FeastFreedom.model.FeastUser;
 import com.project.FeastFreedom.model.Kitchen;
 import com.project.FeastFreedom.model.Menu;
@@ -54,5 +57,18 @@ class FeastFreedomApplicationTests {
 		kitchenService.insert(kitchen);
 	}
 	*/
+	
+	@Test
+	void testMailer() {		
+		try {
+			SESMailer.send("joeyibarra436@gmail.com", "Feast Freedom Test Notification", ""
+					+ "<h1>Your order has been placed!</h1>"
+					+ "<p>Order details: ... </p>"
+					);
+		} catch(MessagingException ex) {
+			System.out.println("MessaingException: "+ex.getMessage());
+		}
+		
+	}
 
 }

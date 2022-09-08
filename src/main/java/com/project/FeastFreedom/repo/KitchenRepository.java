@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 @Repository
 public interface KitchenRepository extends JpaRepository<Kitchen, Integer> {
-	
+	Kitchen findByEmail(String email);
 }
