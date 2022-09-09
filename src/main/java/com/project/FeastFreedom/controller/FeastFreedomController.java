@@ -29,7 +29,7 @@ public class FeastFreedomController {
 	@Autowired
 	private MenuService menuService;
 	
-	@GetMapping("/kitchens")
+	@GetMapping("/kitchen")
 	public List<Kitchen> getKitchenList()
 	{
 		return kitchenService.getKitchens();
@@ -41,10 +41,10 @@ public class FeastFreedomController {
 	    try {
 	        Kitchen kitchen = kitchenService.getKitchen(id);
 	        return new ResponseEntity<Kitchen>(kitchen, HttpStatus.OK);
-	    } 
+	    }
 	    catch (NoSuchElementException e) {
 	        return new ResponseEntity<Kitchen>(HttpStatus.NOT_FOUND);
-	    }   
+	    }
 	    
 	}
 	
@@ -55,10 +55,10 @@ public class FeastFreedomController {
 	        ArrayList<MenuItem> menuItems = menuService.getMenuItems(id);
 	        
 	        return new ResponseEntity< ArrayList<MenuItem> >(menuItems, HttpStatus.OK);
-	    } 
+	    }
 	    catch (NoSuchElementException e) {
 	        return new ResponseEntity<ArrayList<MenuItem>>(HttpStatus.NOT_FOUND);
-	    }   
+	    }
 	    
 	}
 	
@@ -85,11 +85,5 @@ public class FeastFreedomController {
 			System.out.println("Error finding user with email "+userEmail);
 		}
 	}
-	
-	@PostMapping("/kitchen")
-	public void createKitchen(@RequestBody Kitchen kit) {
-		kitchenService.insert(kit);
-	}
-	
 	
 }
