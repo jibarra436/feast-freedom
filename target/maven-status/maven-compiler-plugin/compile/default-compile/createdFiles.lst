@@ -9,6 +9,7 @@ com\project\FeastFreedom\config\JwtTokenUtil.class
 com\project\FeastFreedom\controller\JwtAuthenticationController.class
 com\project\FeastFreedom\config\WebSecurityConfig.class
 com\project\FeastFreedom\services\MenuService.class
+com\project\FeastFreedom\controller\WebController.class
 com\project\FeastFreedom\services\UserService.class
 com\project\FeastFreedom\model\FeastUser.class
 com\project\FeastFreedom\config\JwtRequestFilter.class

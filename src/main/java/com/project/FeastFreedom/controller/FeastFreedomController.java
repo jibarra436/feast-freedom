@@ -67,6 +67,8 @@ public class FeastFreedomController {
 		// Get user by email, if valid send confirmation email
 		FeastUser user = userService.getUserByEmail(userEmail);
 		
+		// Parse cart as JSON? (depends how we implement the cart in angular
+		
 		if(user != null) {
 			
 			try {
