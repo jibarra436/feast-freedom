@@ -10,8 +10,8 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +21,8 @@ import com.project.FeastFreedom.config.JwtTokenUtil;
 import com.project.FeastFreedom.model.FeastUser;
 import com.project.FeastFreedom.model.JwtRequest;
 import com.project.FeastFreedom.model.JwtResponse;
+import com.project.FeastFreedom.model.Kitchen;
+import com.project.FeastFreedom.services.KitchenService;
 import com.project.FeastFreedom.services.UserService;
 
 @RestController
@@ -37,9 +39,15 @@ public class JwtAuthenticationController {
 	private UserDetailsService jwtInMemoryUserDetailsService;
 	
 	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private KitchenService kitchenService;
 
-	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> generateAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
 			throws Exception {
 
@@ -65,9 +73,23 @@ public class JwtAuthenticationController {
 		}
 	}
 	
-	@PostMapping
+	@RequestMapping(value = "/api/createuser", method = RequestMethod.POST)
 	public void creatUserAccount(@RequestBody FeastUser u) {
-		//Authentication stuff here
+		
+		String encryptedPW = bCryptPasswordEncoder.encode(u.getPassword());
+		
+		u.setPassword(encryptedPW);
+		
 		userService.insert(u);
+	}
+	
+	@RequestMapping(value = "/api/createkitchen", method = RequestMethod.POST)
+	public void createKitchen(@RequestBody Kitchen kit) {
+		
+		String encryptedPW = bCryptPasswordEncoder.encode(kit.getPassword());
+		
+		kit.setPassword(encryptedPW);
+		
+		kitchenService.insert(kit);
 	}
 }
