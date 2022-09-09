@@ -29,7 +29,7 @@ public class FeastFreedomController {
 	@Autowired
 	private MenuService menuService;
 	
-	@GetMapping("/kitchen")
+	@GetMapping("/kitchens")
 	public List<Kitchen> getKitchenList()
 	{
 		return kitchenService.getKitchens();
