@@ -4,16 +4,21 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CreatekitchenComponent } from './createkitchen.component';
 import { KitchenService } from './services/kitchen.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CreatekitchenComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,                               
+    ReactiveFormsModule 
   ],
   providers: [KitchenService],
   bootstrap: [AppComponent]

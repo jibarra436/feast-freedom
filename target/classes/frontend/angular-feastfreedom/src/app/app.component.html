@@ -76,7 +76,6 @@
 </style>
 </head>
 <body>
-
 <div class="navbar">
     <h3>FeastFreedom.com</h3>
     
@@ -95,17 +94,20 @@
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="/userRegistrationForm">Register As User</a>
-      <a href="/providerRegistrationForm">Register As Kitchen</a>
-      
+      <a routerLink="createkitchen" routerLinkActive="active" >Register As User</a>
+      <a routerLink="createkitchen" routerLinkActive="active" >Register As Kitchen</a>
+      <router-outlet></router-outlet>
     </div>
-    
   </div> 
   
 </div>
+
+<router-outlet></router-outlet>
+
 
 <h3>Feast Freedom</h3>
 <p>Welcome to our site</p>
 
 </body>
+ 
 </html>

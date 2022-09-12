@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<h2>Kitchen Registration</h2>
+
+    <form (ngSubmit)="createkitchen()" #userForm="ngForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" [(ngModel)]= "kit.email" email = "email"
+                placeholder = "Enter your email" formControlName="email" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="name">Kitchen Name:</label>
+                <input type="text" [(ngModel)]= "kit.kitchenName" kitchenName = "name"
+                placeholder = "Enter the Name" formControlName="password" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="psw">Password:</label>
+                <input type="password" [(ngModel)]= "kit.psw" psw = "psw"
+                placeholder = "Enter your Password" formControlName="psw" class="form-control"/>
+            </div>
+        </form>
+    <button type="submit">Register</button>
+
+
+</body>
+
+</html>
