@@ -22,6 +22,7 @@ import com.project.FeastFreedom.model.FeastUser;
 import com.project.FeastFreedom.model.JwtRequest;
 import com.project.FeastFreedom.model.JwtResponse;
 import com.project.FeastFreedom.model.Kitchen;
+import com.project.FeastFreedom.services.JwtUserDetailsService;
 import com.project.FeastFreedom.services.KitchenService;
 import com.project.FeastFreedom.services.UserService;
 
@@ -39,6 +40,9 @@ public class JwtAuthenticationController {
 	private UserDetailsService jwtInMemoryUserDetailsService;
 	
 	@Autowired
+	private JwtUserDetailsService jwtUserDetailsService;
+	
+	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Autowired
@@ -48,13 +52,12 @@ public class JwtAuthenticationController {
 	private KitchenService kitchenService;
 
 	@RequestMapping(value = "/api/authenticate", method = RequestMethod.POST)
-	public ResponseEntity<?> generateAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
+	public ResponseEntity<?> generateUserAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
 			throws Exception {
 
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
-		final UserDetails userDetails = jwtInMemoryUserDetailsService
-				.loadUserByUsername(authenticationRequest.getUsername());
+		final UserDetails userDetails = jwtInMemoryUserDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
 

@@ -25,18 +25,19 @@ public class JwtUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		FeastUser feastuser = userRepo.findByEmail(email);
-		Kitchen kitchenuser = kitchenRepo.findByEmail(email);
 		
-		if (feastuser.getEmail() != null) {
+		if (feastuser != null) {
 			return new User(feastuser.getEmail(), feastuser.getPassword(), new ArrayList<>());
 		}
-		else if (kitchenuser.getEmail() != null) {
-			return new User(kitchenuser.getEmail(), kitchenuser.getPassword(), new ArrayList<>());
-		} else {
-			throw new UsernameNotFoundException("User not found with email: " + email);
+		else {
+			Kitchen kitchenuser = kitchenRepo.findByEmail(email);
+			
+			if(kitchenuser != null) {
+				return new User(kitchenuser.getEmail(), kitchenuser.getPassword(), new ArrayList<>());
+			}
 		}
 		
-		
+		throw new UsernameNotFoundException("No account found with email: " + email);
 		
 	}
 
