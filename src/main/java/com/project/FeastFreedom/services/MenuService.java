@@ -35,6 +35,10 @@ public class MenuService {
     	return menuItemRepo.findAllByMenuId(id);
     }
     
+    public MenuItem getMenuItemByName(String itemName) {
+    	return menuItemRepo.findByItemName(itemName);
+    }
+    
     public void insertMenuItem(MenuItem item) {
     	menuItemRepo.save(item);
     }

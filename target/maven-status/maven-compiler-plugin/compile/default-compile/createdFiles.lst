@@ -1,14 +1,11 @@
 com\project\FeastFreedom\controller\FeastFreedomController.class
-com\project\FeastFreedom\repo\MenuItemRepository.class
 com\project\FeastFreedom\model\FeastUser.class
 com\project\FeastFreedom\config\WebSecurityConfig.class
-com\project\FeastFreedom\controller\WebController.class
 com\project\FeastFreedom\services\KitchenService.class
 com\project\FeastFreedom\repo\UserRepository.class
 com\project\FeastFreedom\repo\KitchenRepository.class
 com\project\FeastFreedom\services\UserService.class
 com\project\FeastFreedom\model\JwtRequest.class
-com\project\FeastFreedom\model\JwtResponse.class
 com\project\FeastFreedom\services\JwtUserDetailsService.class
 com\project\FeastFreedom\config\JwtTokenUtil.class
 com\project\FeastFreedom\FeastFreedomApplication.class
@@ -16,8 +13,6 @@ com\project\FeastFreedom\config\JwtAuthenticationEntryPoint.class
 com\project\FeastFreedom\model\MenuItem.class
 com\project\FeastFreedom\config\SESMailer.class
 com\project\FeastFreedom\model\Kitchen.class
-com\project\FeastFreedom\services\MenuService.class
 com\project\FeastFreedom\model\Menu.class
 com\project\FeastFreedom\controller\JwtAuthenticationController.class
 com\project\FeastFreedom\config\JwtRequestFilter.class
-com\project\FeastFreedom\repo\MenuRepository.class

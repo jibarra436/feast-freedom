@@ -69,6 +69,27 @@ public class FeastFreedomController {
 		FeastUser user = userService.getUserByEmail(email);
 		
 		// Parse cart as JSON? (depends how we implement the cart in angular
+		Map<MenuItem, Integer> cartMap = new HashMap<MenuItem, Integer>();
+		
+		
+		for(String item : cart.split(";")) {
+			System.out.println(item);
+			int count = Integer.parseInt(item.substring(item.indexOf('-')+1));
+			String name = item.substring(0, item.indexOf('-'));
+			MenuItem menuItem = menuService.getMenuItemByName(name);
+			
+			cartMap.put(menuItem, count);
+		}
+		
+		String parsedCart = "";
+		
+		for (MenuItem item : cartMap.keySet()) {
+			parsedCart += "<tr>";
+			parsedCart += "<td>"+item.getItemName()+"</td>";
+			parsedCart += "<td>"+cartMap.get(item)+"</td>";
+			parsedCart += "<td>"+item.getItemPrice()*cartMap.get(item)+"</td>";
+			parsedCart += "</tr>";
+		}
 		
 		if(user != null) {
 			
@@ -77,7 +98,19 @@ public class FeastFreedomController {
 					+ "<h1>Your Order Has Been Placed!</h1>"
 					+ "<p>Thank you for your order!<p>"
 					+ "<br><p>Your order:<p>"
-					+ cart);
+					
+					+ "<table>"
+					+ "<tr>"
+					+ "<th>Item</th>"
+					+ "<th>Quantity</th>"
+					+ "<th>Subtotal</th>"
+					+ "</tr>"
+					
+					+ parsedCart
+					
+					+ "</table>"
+					
+					);
 			} catch(MessagingException ex) {
 				System.out.println("Error sending mail - "+ex.getMessage());
 			}
