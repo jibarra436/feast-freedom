@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.FeastFreedom.config.SESMailer;
@@ -63,16 +64,16 @@ public class FeastFreedomController {
 	}
 	
 	@PostMapping("/checkout")
-	public void createCart(@RequestBody String userEmail, @RequestBody String cart) {
+	public void createCart(@RequestParam("email") String email, @RequestParam("cart") String cart) {
 		// Get user by email, if valid send confirmation email
-		FeastUser user = userService.getUserByEmail(userEmail);
+		FeastUser user = userService.getUserByEmail(email);
 		
 		// Parse cart as JSON? (depends how we implement the cart in angular
 		
 		if(user != null) {
 			
 			try {
-				SESMailer.send(userEmail, "Feast Freedom Order Confirmation", ""
+				SESMailer.send(email, "Feast Freedom Order Confirmation", ""
 					+ "<h1>Your Order Has Been Placed!</h1>"
 					+ "<p>Thank you for your order!<p>"
 					+ "<br><p>Your order:<p>"
@@ -82,7 +83,7 @@ public class FeastFreedomController {
 			}
 			
 		} else {
-			System.out.println("Error finding user with email "+userEmail);
+			System.out.println("Error finding user with email "+email);
 		}
 	}
 	
