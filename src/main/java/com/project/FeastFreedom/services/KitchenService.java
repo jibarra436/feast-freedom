@@ -23,6 +23,10 @@ public class KitchenService {
         return kitchenRepo.findById(id).get();
     }
     
+    public void setKitchenImage(String email, String imageUrl) {
+    	kitchenRepo.setKitchenImageById(email, imageUrl);
+    }
+    
     public void insert(Kitchen kitchen) {
     	kitchenRepo.save(kitchen);
     }

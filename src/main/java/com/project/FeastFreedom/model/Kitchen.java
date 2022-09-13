@@ -27,6 +27,7 @@ public class Kitchen {
 	
 	@Column(unique = true)
     private String kitchenName;
+	
 	@Column(unique = true)
     private String email;
 	
