@@ -119,4 +119,30 @@ public class FeastFreedomController {
 		}
 	}
 	
+	@GetMapping("/user/{id}")
+	public ResponseEntity<FeastUser> getUserInfo(@PathVariable int id) {
+		
+	    try {
+	    	FeastUser user = userService.getUser(id);
+	        return new ResponseEntity<FeastUser>(user, HttpStatus.OK);
+	    }
+	    catch (NoSuchElementException e) {
+	        return new ResponseEntity<FeastUser>(HttpStatus.NOT_FOUND);
+	    }
+	    
+	}
+	
+	@GetMapping("/user/email/{email}")
+	public ResponseEntity<FeastUser> getUserByEmail(@PathVariable String email) {
+		
+	    try {
+	    	FeastUser user = userService.getUserByEmail(email);
+	        return new ResponseEntity<FeastUser>(user, HttpStatus.OK);
+	    }
+	    catch (NoSuchElementException e) {
+	        return new ResponseEntity<FeastUser>(HttpStatus.NOT_FOUND);
+	    }
+	    
+	}
+	
 }
